@@ -1,5 +1,6 @@
 backend:
-  name: test-repo
+  name: github
+  repo: max-jellycat/salty-v2
 
 media_folder: static/assets
 public_folder: assets
