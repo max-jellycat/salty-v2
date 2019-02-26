@@ -8,37 +8,40 @@ module.exports = {
     twitterUsername: "@max-jellycat",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets`,
-        path: `${__dirname}/static/assets/`,
+        path: `${__dirname}/static/uploads`,
+        name: `uploads`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "markdown-pages",
-        path: `${__dirname}/post/`,
+        path: `${__dirname}/src/images`,
+        name: `images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
+    },
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          // {
-          //   resolve: `gatsby-remark-relative-images`,
-          // },
           {
-            resolve: `gatsby-plugin-netlify-cms-paths`,
+            resolve: `gatsby-remark-relative-images`,
             options: {
-              cmsConfig: `/static/admin/config.yml`,
+              name: `uploads`,
             },
-          },
-          {
-            resolve: `gatsby-remark-copy-linked-files`,
           },
           {
             resolve: `gatsby-remark-images`,
@@ -46,9 +49,20 @@ module.exports = {
               maxWidth: 1080,
             },
           },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: "static",
+            },
+          },
         ],
       },
     },
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
   ],
 }

@@ -1,3 +1,13 @@
 import React from "react"
+import SEO from "../components/SEO"
+import Layout from "../components/Layout"
+import BlogRoll from "../components/BlogRoll"
 
-export default () => <div>Hello world!</div>
+import "../styles/index.scss"
+
+export default () => (
+  <Layout>
+    <SEO />
+    <BlogRoll />
+  </Layout>
+)
