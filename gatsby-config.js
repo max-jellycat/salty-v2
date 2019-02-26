@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: "Salt & Paper",
-    titleTemplate: "%s",
-    description: "Succession of words written with salty ink.",
-    url: "salt-and-paper.fr",
-    image: "",
-    twitterUsername: "@max-jellycat",
+    title: 'Salt & Paper',
+    titleTemplate: '%s',
+    description: 'Succession of words written with salty ink.',
+    url: 'salt-and-paper.fr',
+    image: '',
+    twitterUsername: '@max-jellycat',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,17 +17,10 @@ module.exports = {
         name: `uploads`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/src/images`,
-    //     name: `images`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: "pages",
+        name: 'pages',
         path: `${__dirname}/src/pages`,
       },
     },
@@ -52,7 +45,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: "static",
+              destinationDir: 'static',
             },
           },
         ],
