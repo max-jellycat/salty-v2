@@ -1,4 +1,5 @@
 const path = require("path")
+const { fmImagesToRelative } = require("gatsby-remark-relative-images")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -26,6 +27,7 @@ exports.createPages = ({ actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      // fmImagesToRelative(node)
       createPage({
         path: node.frontmatter.path,
         component: postTemplate,

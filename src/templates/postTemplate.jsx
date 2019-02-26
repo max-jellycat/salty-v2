@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/SEO"
+import Image from "gatsby-image"
 
 export default function Template({ data }) {
   const { markdownRemark } = data
@@ -12,7 +13,7 @@ export default function Template({ data }) {
         <div className="post">
           <h1>{frontmatter.title}</h1>
           <h2>{frontmatter.date}</h2>
-          <img src={frontmatter.thumbnail} alt="" />
+          <Image fluid={frontmatter.thumbnail.childImageSharp.fluid} />
           <div
             className="post-content"
             dangerouslySetInnerHTML={{ __html: html }}
@@ -31,6 +32,13 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        thumbnail {
+          childImageSharp {
+            fluid(maxWidth: 1080) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
