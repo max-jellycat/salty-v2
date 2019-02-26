@@ -1,7 +1,7 @@
 {
   "name": "salty-v2",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A blog coded with Gatsby, NetlifyCMS and Semantic UI",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -17,7 +17,6 @@
     "gatsby": "^2.1.18",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-netlify-cms": "^3.0.12",
-    "gatsby-plugin-netlify-cms-paths": "^1.1.0",
     "gatsby-plugin-react-helmet": "^3.0.7",
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.22",
@@ -38,9 +37,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/max-jellycat/salty-v2"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/max-jellycat/salty-v2/issues"
   }
 }

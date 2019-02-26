@@ -1,3 +1,4 @@
+const _ = require("lodash")
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const { fmImagesToRelative } = require("gatsby-remark-relative-images")
@@ -42,6 +43,29 @@ exports.createPages = ({ actions, graphql }) => {
         ),
         context: {
           id,
+        },
+      })
+    })
+    // Tag pages
+    let tags = []
+    // Iterate through posts, pushing all found tags in `tags`
+    posts.forEach(edge => {
+      if (_.get(edge, `node.frontmatter.tags`)) {
+        tags = tags.concat(edge.node.frontmatter.tags)
+      }
+    })
+    // Eliminate duplicates
+    tags = _.uniq(tags)
+
+    // Make tag pages
+    tags.forEach(tag => {
+      const tagPath = `/tags/${_.kebabCase(tag)}/`
+
+      createPage({
+        path: tagPath,
+        component: path.resolve(`src/templates/tags.jsx`),
+        context: {
+          tag,
         },
       })
     })
