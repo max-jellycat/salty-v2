@@ -11,15 +11,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/static/assets`,
         name: `assets`,
+        path: `${__dirname}/static/assets`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/post`,
         name: "markdown-pages",
+        path: `${__dirname}/post`,
       },
     },
     `gatsby-transformer-sharp`,
