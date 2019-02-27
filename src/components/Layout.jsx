@@ -1,22 +1,11 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles'
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 
 import SEO from './SEO'
 import Navbar from './Navbar'
 
-const styles = theme => ({
-  root: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingLeft: theme.spacing.unit * 2,
-    paddingRight: theme.spacing.unit * 2,
-    [theme.breakpoints.up('sm')]: {
-      paddingLeft: theme.spacing.unit * 3,
-      paddingRight: theme.spacing.unit * 3,
-    },
-  },
-})
+import '../styles/index.scss'
 
 const Layout = ({ children, classes }) => (
   <StaticQuery
@@ -32,8 +21,8 @@ const Layout = ({ children, classes }) => (
     render={data => (
       <>
         <SEO />
-        <Navbar siteTitle={data.site.siteMetadata.title} />
-        <div className={classes.root}>{children}</div>
+        <Navbar />
+        {children}
       </>
     )}
   />
@@ -41,7 +30,6 @@ const Layout = ({ children, classes }) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  classes: PropTypes.object.isRequired,
 }
 
-export default withStyles(styles)(Layout)
+export default Layout

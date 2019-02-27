@@ -1,101 +1,77 @@
 import React from 'react'
-import classNames from 'classnames'
-import { withStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Button from '@material-ui/core/Button'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
-import IconButton from '@material-ui/core/IconButton'
-import Typography from '@material-ui/core/Typography'
-import BookmarksIcon from '@material-ui/icons/Bookmarks'
+import {
+  Hero,
+  HeroHeader,
+  HeroBody,
+  HeroFooter,
+  Nav,
+  NavLeft,
+  NavCenter,
+  NavRight,
+  NavItem,
+  Tabs,
+  Tab,
+  TabLink,
+  TabList,
+  Container,
+  Title,
+  Icon,
+} from 'bloomer'
 
-import { Link } from 'gatsby'
+const Navbar = () => (
+  <>
+    <Hero isColor="info" isSize="medium">
+      <HeroHeader>
+        <Nav>
+          <NavLeft>
+            <NavItem isBrand>Bloomer</NavItem>
+          </NavLeft>
+          <NavCenter>
+            <NavItem>
+              <Icon className="fa fa-github" />
+            </NavItem>
+            <NavItem>
+              <Icon className="fa fa-twitter" />
+            </NavItem>
+          </NavCenter>
+          <NavRight isMenu>
+            <NavItem>Home</NavItem>
+            <NavItem>Documentation</NavItem>
+          </NavRight>
+        </Nav>
+      </HeroHeader>
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  icon: {
-    margin: theme.spacing.unit * 2,
-  },
-})
+      <HeroBody>
+        <Container hasTextAlign="centered">
+          <Title>Title</Title>
+        </Container>
+      </HeroBody>
 
-class Navbar extends React.Component {
-  state = {
-    anchorEl: null,
-    mobileMoreAnchorEl: null,
-  }
+      <HeroFooter>
+        <Tabs isBoxed isFullWi dth>
+          <Container>
+            <TabList>
+              <Tab isActive>
+                <TabLink>Overview</TabLink>
+              </Tab>
+              <Tab>
+                <TabLink>Grid</TabLink>
+              </Tab>
+              <Tab>
+                <TabLink>Element</TabLink>
+              </Tab>
+              <Tab>
+                <TabLink>Components</TabLink>
+              </Tab>
+              <Tab>
+                <TabLink>Layout</TabLink>
+              </Tab>
+            </TabList>
+          </Container>
+        </Tabs>
+      </HeroFooter>
+    </Hero>
+  </>
+)
 
-  handleTagsMenuOpen = event => {
-    this.setState({ anchorEl: event.currentTarget })
-  }
-
-  handleMenuClose = () => {
-    this.setState({ anchorEl: null })
-    this.handleMobileMenuClose()
-  }
-
-  handleMobileMenuOpen = event => {
-    this.setState({ mobileMoreAnchorEl: event.currentTarget })
-  }
-
-  handleMobileMenuClose = () => {
-    this.setState({ mobileMoreAnchorEl: null })
-  }
-
-  render() {
-    const { anchorEl, mobileMoreAnchorEl } = this.state
-    const { siteTitle, classes } = this.props
-    const isMenuOpen = Boolean(anchorEl)
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-
-    const renderMenu = (
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-        open={isMenuOpen}
-        onClose={this.handleMenuClose}
-      >
-        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
-      </Menu>
-    )
-
-    return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography variant="h6" color="inherit">
-              <Link
-                to="/"
-                style={{
-                  color: 'white',
-                  textDecoration: 'none',
-                }}
-              >
-                {siteTitle}
-              </Link>
-            </Typography>
-            <div className={classes.grow} />
-            <Button
-              aria-owns={isMenuOpen ? 'material-appbar' : undefined}
-              aria-haspopup="true"
-              onClick={this.handleTagsMenuOpen}
-              color="inherit"
-            >
-              Tags
-            </Button>
-          </Toolbar>
-        </AppBar>
-        {renderMenu}
-      </div>
-    )
-  }
-}
-
-export default withStyles(styles)(Navbar)
+export default Navbar
