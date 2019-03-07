@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link, graphql, StaticQuery } from "gatsby"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql, StaticQuery } from 'gatsby'
 
 class BlogRoll extends React.Component {
   render() {
@@ -8,10 +8,10 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
+            <div key={post.id}>
               <article className="tile is-child box notification">
                 <p>
                   <Link
@@ -36,7 +36,7 @@ class BlogRoll extends React.Component {
               </article>
             </div>
           ))}
-      </div>
+      </>
     )
   }
 }

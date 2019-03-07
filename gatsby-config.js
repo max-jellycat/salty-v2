@@ -5,11 +5,25 @@ module.exports = {
     description: 'Succession of words written with salty ink.',
     url: 'salt-and-paper.fr',
     image: '',
-    twitterUsername: '@max-jellycat',
+    twitterUsername: '@salty-max',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Raleway`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Rammetto One`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

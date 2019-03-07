@@ -1,1 +1,65 @@
 @import '~bulma';
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+.body {
+  font-family: 'Raleway';
+  background-color: $dark;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center center;
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $dark;
+    opacity: .5
+  }
+
+  .title {
+    text-transform: uppercase;
+    color: $light;
+    font-size: 4rem;
+    z-index: 10;
+  }
+}
+
+.navbar-brand {
+  font-family: 'Rammetto One';
+  font-size: 2rem;
+}
+
+.tags-dropdown {
+  min-width: 10rem;
+
+  >a.navbar-item {
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--tag {
+    text-transform: uppercase;
+  }
+
+  &--count {
+    text-align: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    padding: 0.75rem;
+    border-radius: .375rem;
+    background-color: $dark;
+    color: $light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
